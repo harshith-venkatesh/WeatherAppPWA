@@ -1,3 +1,10 @@
+The project is live and it can be accessed over here: https://progressiveweatherapp.netlify.app/
+
+This peoject is done based on the tutorial whose link can be checked here 
+
+https://www.youtube.com/watch?v=IaJqMcOMuDM
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
