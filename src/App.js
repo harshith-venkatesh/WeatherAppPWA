@@ -55,7 +55,7 @@ const App = () => {
         <input
           type="text"
           className="search"
-          placeholder="Search...."
+          placeholder="Search City...."
           id="searchTerm"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
