@@ -13,11 +13,25 @@ const App = () => {
 
   const search = async (e) => {
     if (e.key === "Enter") {
+      const place = query;
       const data = await fetchWeather(query);
+      localStorage.setItem("place", JSON.stringify(place));
       setWeather(data);
       setQuery("");
     }
   };
+  var localData = localStorage.getItem("place");
+
+  React.useEffect(() => {
+    if (localData !== "null") {
+      const fetch = async () => {
+        const data = await fetchWeather(JSON.parse(localData));
+        setWeather(data);
+        setQuery("");
+      };
+      fetch();
+    }
+  });
 
   //   const handlePlace = async (value) => {};
   return (
