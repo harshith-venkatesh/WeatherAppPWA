@@ -21,17 +21,20 @@ const App = () => {
     }
   };
   var localData = localStorage.getItem("place");
-
+  const fetch = async () => {
+    const data = await fetchWeather(JSON.parse(localData));
+    setWeather(data);
+    setQuery("");
+  };
+  var flag = true;
   React.useEffect(() => {
-    if (localData !== "null") {
-      const fetch = async () => {
-        const data = await fetchWeather(JSON.parse(localData));
-        setWeather(data);
-        setQuery("");
-      };
-      fetch();
+    while (flag) {
+      if (localData !== "null") {
+        fetch();
+      }
+      flag = false;
     }
-  });
+  }, [flag]);
 
   //   const handlePlace = async (value) => {};
   return (
