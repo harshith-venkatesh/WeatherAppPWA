@@ -20,19 +20,20 @@ const App = () => {
       setQuery("");
     }
   };
-  var localData = localStorage.getItem("place");
-  const fetch = async () => {
-    const data = await fetchWeather(JSON.parse(localData));
-    setWeather(data);
-    setQuery("");
-  };
   var flag = true;
+  if (localStorage.getItem("place") !== "null") {
+    flag = false;
+  }
   React.useEffect(() => {
-    while (flag) {
-      if (localData !== "null") {
-        fetch();
-      }
-      flag = false;
+    var localData = localStorage.getItem("place");
+    const fetch = async () => {
+      const data = await fetchWeather(JSON.parse(localData));
+      setWeather(data);
+      setQuery("");
+    };
+
+    if (localData !== "null") {
+      fetch();
     }
   }, [flag]);
 
